@@ -189,5 +189,14 @@ node(app/db/cache/mq) -> rack -> IDC -> city -> country -> planet?
 
 ## References
 
-- [一个理论，三个原则，多个步骤](https://toutiao.io/posts/y8qekd/preview)
+- [一个理论，三个原则，四个步骤](https://toutiao.io/posts/y8qekd/preview)
+   - 理论：CAP，异地多活是个AP方案
+   - 原则：只保证核心业务，只能最终一致性，只保证绝大多数用户
+   - 步骤：业务分级，数据分级，数据同步，异常处理
+      - 业务分级：访问量、核心场景、收入来源
+      - 数据分级：数据量、一致性、唯一性、可丢失性、可恢复性
+      - 数据同步：多管齐下，不择手段
+      - 异常处理：业务逻辑兼容、事后补偿(礼包、红包)、人工修正(以日志为基础)
+
+
 
