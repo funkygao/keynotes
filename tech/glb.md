@@ -137,7 +137,8 @@ node(app/db/cache/mq) -> rack -> IDC -> city -> country -> planet?
 
 ### IDC之间的带宽限制(cost)
 
-带宽，永远是买得到的；而延迟，是无法购买的。
+- 带宽，是可以购买的
+- 延迟，是无法购买的
 
 ## TODO
 
