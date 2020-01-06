@@ -115,6 +115,7 @@ node(app/db/cache/mq) -> rack -> IDC -> city -> country -> planet?
       - twitter(即使丢失twitter/comments影响也不大，用户可能觉察不出来)
 - 跨国异地
    - RTT极高，丢包率极高
+   - read only多活
    - aws
       - 亚洲账户是无法登录美国的
    - google
@@ -175,6 +176,10 @@ node(app/db/cache/mq) -> rack -> IDC -> city -> country -> planet?
 
 - 带宽，是可以购买的
 - 延迟，是无法购买的
+
+## Solution in one word
+
+**采用多种手段，保证大部分用户的核心业务异地多活**
 
 ## TODO
 
