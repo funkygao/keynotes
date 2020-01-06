@@ -9,7 +9,9 @@
 剪断后，部分用户不可用。经过26s，容灾切换完成，全部用户恢复正常。
 
 - 异地：地理位置不同
+   - 不要把鸡蛋都放在一个篮子里
 - 多活：不同地理位置上的系统，都能提供业务服务
+   - 活 = active(not standby)
    - 无论访问哪个地区的服务，都能得到正确的业务服务
    - 某地区服务异常，用户可以访问其他地区服务得到正确的业务服务
 - 容错
@@ -22,6 +24,17 @@
 异地多活的根本技术难题，是RTT不能忽略的问题。
 
 异地多活，是一种HA部署架构。
+
+- [到底解决什么问题](#到底解决什么问题)
+- [背景资料](#background)
+   - [Buzz Word](#buzz-words)
+   - [容灾级别](#容灾级别)
+   - [部署结构](#部署结构)
+   - [Tough Problems](#touch-problems)
+- [Tricks](#tricks)
+   - [设计理念](#设计理念)
+   - [手段](#手段)
+- [TODO](#todo)
 
 ## 到底解决什么问题
 
@@ -97,7 +110,7 @@ node(app/db/cache/mq) -> rack -> IDC -> city -> country -> planet?
       - readonly scenario
       - 无论在哪个国家搜索，结果基本相同
 
-### Hard Problems
+### Tough Problems
 
 - 强一致要求的数据
    - 存款余额(无法异地多活)
@@ -113,7 +126,7 @@ node(app/db/cache/mq) -> rack -> IDC -> city -> country -> planet?
 
 ### 设计理念
 
-### 误区
+#### 误区
 
 - 要保证所有业务都异地多活
    - 优先实现核心业务的异地多活
