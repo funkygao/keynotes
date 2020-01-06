@@ -132,6 +132,9 @@ node(app/db/cache/mq) -> rack -> IDC -> city -> country -> planet?
 - DNS cache
    - HTTPDNS
    - 用户移步
+- 微服务架构下的服务依赖关系
+   - A依赖B，即使A实现了异地多活，但B没有，那么A还是没有实现异地多活
+   - bottom up
    
 ## Tricks
 
