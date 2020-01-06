@@ -69,6 +69,7 @@ node(app/db/cache/mq) -> rack -> IDC -> city -> country -> planet?
 ```
 
 - 单节点容灾
+   - SPOF
    - app/db/cache/mq broker
    - 都是各个系统的HA设计实现的：design for failure
 - rack容灾
@@ -185,4 +186,8 @@ node(app/db/cache/mq) -> rack -> IDC -> city -> country -> planet?
 
 - how aws solve HA accross regions
 - 能提供保险/再保险，来解决技术架构问题吗
+
+## References
+
+- [一个理论，三个原则，多个步骤](https://toutiao.io/posts/y8qekd/preview)
 
