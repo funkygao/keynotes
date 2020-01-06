@@ -8,6 +8,10 @@
    - 可预期的错误
    - 冗余
 
+异地多活的根本技术难题，是RTT不能忽略的问题。
+
+异地多活，是一种HA部署架构。
+
 ## 到底解决什么问题
 
 都是极端的场景
@@ -84,7 +88,7 @@ node -> rack -> IDC -> city -> country -> planet?
       - readonly scenario
       - 无论在哪个国家搜索，结果基本相同
 
-### Hard to solve problems
+### Hard Problems
 
 - 强一致要求的数据
    - 存款余额(无法异地多活)
@@ -92,6 +96,9 @@ node -> rack -> IDC -> city -> country -> planet?
    - 库存，订单状态
 - unique constraint
    - 账号注册，unique(name)，site(A) crash before rep to B; 用户被切换到site(B)，注册成功，但等site(A) recovers，唯一约束破坏
+- DNS cache
+   - HTTPDNS
+   - 用户移步
    
 ## Tricks
 
@@ -124,6 +131,13 @@ node -> rack -> IDC -> city -> country -> planet?
 #### 流量调度
 
 例如，session sticky
+
+本质是：让特定用户服务特定的IDC，并在某IDC失效后，后续服务访问alternative IDC，而且，在orignal IDC recover后，恢复访问该IDC
+
+
+### IDC之间的带宽限制(cost)
+
+带宽，永远是买得到的；而延迟，是无法购买的。
 
 ## TODO
 
