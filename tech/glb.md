@@ -1,5 +1,7 @@
 # 异地多活
 
+2018年9月份云栖大会上蚂蚁金服当场把杭州的2个IDC的网线剪短...
+
 - 异地：地理位置不同
 - 多活：不同地理位置上的系统，都能提供业务服务
    - 无论访问哪个地区的服务，都能得到正确的业务服务
@@ -20,9 +22,7 @@
 - 国家not available
 - 地球not available?
 
-## 引发异地多活思考的背景
-
-2018年9月份云栖大会上蚂蚁金服当场把杭州的2个IDC的网线剪短...
+## Background
 
 ### Buzz Words
 
@@ -39,7 +39,7 @@
 ### 容灾级别
 
 ```
-node -> rack -> IDC -> city -> country -> planet?
+node(app/db/cache/mq) -> rack -> IDC -> city -> country -> planet?
 ```
 
 - 单节点容灾
